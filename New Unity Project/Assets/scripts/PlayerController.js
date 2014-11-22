@@ -17,7 +17,7 @@ function FixedUpdate () {
 	var movement : Vector3 = Vector3(moveHorizontal, 0.0, moveVertical);
 	
 	rigidbody.AddForce(movement * speed * Time.deltaTime);
-	if (Input.GetKeyDown ("space")){
+	if (Input.GetMouseButtonDown(0)){
 		Debug.Log(rigidbody.position.y);
 		if (rigidbody.position.y < 0.500000){
 			rigidbody.AddForce(Vector3(0.0, 0.5, 0.0) * speed * Time.deltaTime * 100.0);
