@@ -1,9 +1,7 @@
 ﻿#pragma strict
 
-public var gravity : float;
-
 function Start () {
-	Physics.gravity = Vector3(0, -gravity, 0);
+
 }
 
 function Update () {
@@ -11,7 +9,6 @@ function Update () {
 }
 
 public var speed : float;
-public var jump :  float;
 
 function FixedUpdate () {
 	var moveHorizontal : float = Input.acceleration.x;
@@ -20,10 +17,10 @@ function FixedUpdate () {
 	var movement : Vector3 = Vector3(moveHorizontal, 0.0, moveVertical);
 	
 	rigidbody.AddForce(movement * speed * Time.deltaTime);
-	if (Input.GetMouseButtonDown(0)){
+	if (Input.GetKeyDown ("space")){
 		Debug.Log(rigidbody.position.y);
 		if (rigidbody.position.y < 0.500000){
-			rigidbody.AddForce(Vector3(0.0, 0.5, 0.0) * jump * Time.deltaTime * 100.0);
+			rigidbody.AddForce(Vector3(0.0, 0.5, 0.0) * speed * Time.deltaTime * 100.0);
 			}
 	}
 }
